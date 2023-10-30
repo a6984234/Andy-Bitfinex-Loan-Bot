@@ -5,13 +5,17 @@
 請至[綠葉](https://www.bitfinex.com/)申請API *請記得一定要開啟使用融資的權限*
 開啟軟體後輸入你的金鑰與密鑰就啟動了
 
-如果使用上有問題或想給些建議 可以至DC群:(ttps://discord.gg/Xg2Uk8spsr)[https://discord.gg/Xg2Uk8spsr]
+如果使用上有問題或想給些建議 
+可以至DC群:[https://discord.gg/Xg2Uk8spsr](https://discord.gg/Xg2Uk8spsr)
 # 感謝
-此專案使用了 JKolf大大的插件 我永遠感謝他
-https://github.com/JKorf/Bitfinex.Net
+此專案使用了 JKolf大大的插件 
+我永遠感謝他
+[https://github.com/JKorf/Bitfinex.Net](https://github.com/JKorf/Bitfinex.Net)
 
 如果這程式對你有幫助, 你又剛好想感謝我
-請斗內我 **我真的會由衷感謝你 並祝你好人一生平安**
+請斗內我 
+
+**我真的會由衷感謝你 並祝你好人一生平安**
 
 **USDT(TRC20)**:TD82FMnpNxPDKVcuiSAFcfwDYJtpbGuFYN
 
