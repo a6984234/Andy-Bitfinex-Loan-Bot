@@ -1,6 +1,8 @@
 # 安迪的綠葉自動放貸機器人
-我輸出了Exe 如果一般人想要使用可以直接下載
-下載網址:[https://drive.google.com/file/d/1pkedYjhEc88IFZgiRFdWxLJY6EfrqZtB/view?usp=sharing](https://drive.google.com/file/d/1pkedYjhEc88IFZgiRFdWxLJY6EfrqZtB/view?usp=sharing)
+我輸出了Exe 
+如果一般人想要使用可以直接下載
+下載網址:
+[https://drive.google.com/file/d/1pkedYjhEc88IFZgiRFdWxLJY6EfrqZtB/view?usp=sharing](https://drive.google.com/file/d/1pkedYjhEc88IFZgiRFdWxLJY6EfrqZtB/view?usp=sharing)
 # 使用方法
 請至[綠葉](https://www.bitfinex.com/)申請API *請記得一定要開啟使用融資的權限*
 開啟軟體後輸入你的金鑰與密鑰就啟動了
