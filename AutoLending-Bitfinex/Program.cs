@@ -4,12 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace AutoLending_Bitfinex {
-    class Program
-    {
+    class Program {
         private static BitfinexRestClient bitfinexRestClient = null;
         public const decimal LowestPrice = 0.00025m;
         static void Main(string[] args) {
-            Console.WriteLine("安迪的綠葉放貸機器人 ver 1.00");
+            Console.WriteLine("安迪的綠葉放貸機器人 ver 1.01");
             Console.Write("請輸入API 金鑰 : ");
             var key = Console.ReadLine();
             Console.Write("請輸入API 密鑰 : ");
@@ -19,16 +18,17 @@ namespace AutoLending_Bitfinex {
                 opeiont.RequestTimeout = TimeSpan.FromSeconds(60);
             });
             bool init = false;
+            Task task = null;
             while (true) {
                 if (!init) {
-                    Task.Run(MainRunner);
+                    task = Task.Run(MainRunner);
                     init = true;
                 }
-                var tesa = Console.ReadLine();
-                if (tesa == "Clear")
+                var clearCommon = Console.ReadLine();
+                if (clearCommon == "Clear")
                     Console.Clear();
             }
-            async void MainRunner() {
+            async Task MainRunner() {
                 Console.WriteLine("運轉中...");
                 //獲取資產餘額
                 var data = await bitfinexRestClient.SpotApi.Account.GetBalancesAsync();
@@ -51,25 +51,31 @@ namespace AutoLending_Bitfinex {
                                 var SubmitFundingOffer = await bitfinexRestClient.GeneralApi.Funding.SubmitFundingOfferAsync(Bitfinex.Net.Enums.FundingOrderType.Limit, "fUSD", quantity, rate, period);
                                 if (SubmitFundingOffer.GetResultOrError(out var fundingOffer, out var fundingOfferError)) {
                                     Console.WriteLine("已送出融資訂單 , Rate" + rate + " day" + period);
-                                } else
+                                } else {
+                                    Console.WriteLine("送出融資訂單錯誤!");
                                     Console.WriteLine("SubmitFundingOffer Error" + fundingOfferError.Message);
+                                }
                             }
                         }
                     } else {
                         await GetActiveFundingOffersCount();
                     }
                 } else {
+                    Console.WriteLine("獲取帳戶資訊錯誤!");
                     Console.WriteLine("Get Account Error " + error.Message);
-                    return;
                 }
-                await Task.Delay(10000);
-                MainRunner();
+                await DelayMainRunner();
+
+                async Task DelayMainRunner() {
+                    await Task.Delay(10000);
+                    await MainRunner();
+                }
             }
             //檢查是否仍有訂單 無訂單回傳 
             async Task<int> GetActiveFundingOffersCount() {
                 var getActiveFundingOffers = await bitfinexRestClient.GeneralApi.Funding.GetActiveFundingOffersAsync("fUSD");
                 if (getActiveFundingOffers.GetResultOrError(out var result, out var offersError)) {
-                    if (result.Any() &&  Math.Round(await GetAvg() , 6) != Math.Round( result.First().Rate,6)) {
+                    if (result.Any() && Math.Round(await GetAvg(), 6) != Math.Round(result.First().Rate, 6)) {
                         Console.WriteLine("已有訂單 利率:" + result.First().Rate + "天數:" + result.First().Period);
                         await bitfinexRestClient.GeneralApi.Funding.CancelAllFundingOffersAsync();
                         Console.WriteLine("更新訂單");
@@ -81,7 +87,7 @@ namespace AutoLending_Bitfinex {
                 }
             }
             //獲取價格平均值
-            async Task <decimal>GetAvg() {
+            async Task<decimal> GetAvg() {
                 var _klineData = await bitfinexRestClient.SpotApi.ExchangeData.GetKlinesAsync(
                             "fUSD",
                             Bitfinex.Net.Enums.KlineInterval.ThirtyMinutes,
@@ -98,13 +104,12 @@ namespace AutoLending_Bitfinex {
                             avg = tradeData.First().Price;
                             Console.WriteLine("Avg被市場價格刷新 " + avg);
                         }
-                    } 
-                    else {
+                    } else {
                         Console.WriteLine("Trade history error " + tradeError.Message);
                         return 0;
                     }
                     Console.WriteLine("AVG " + avg);
-                    return avg > LowestPrice?  avg : LowestPrice;
+                    return avg > LowestPrice ? avg : LowestPrice;
                 } else
                     return 0;
             }
