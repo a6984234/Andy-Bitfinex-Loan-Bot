@@ -5,7 +5,7 @@
    
 下載網址:  
    
-[https://drive.google.com/file/d/1pkedYjhEc88IFZgiRFdWxLJY6EfrqZtB/view?usp=sharing](https://drive.google.com/file/d/1pkedYjhEc88IFZgiRFdWxLJY6EfrqZtB/view?usp=sharing)
+[https://drive.google.com/file/d/1wilVXrnrfW12M8pgvdRiuHzpvoEobInK/view?usp=sharing](https://drive.google.com/file/d/1wilVXrnrfW12M8pgvdRiuHzpvoEobInK/view?usp=sharing)
 # 使用方法
 請至[綠葉](https://www.bitfinex.com/)申請API  *請記得一定要開啟使用融資的權限*  
    
