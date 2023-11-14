@@ -1,4 +1,5 @@
 # 版本更新
+Ver1.02 - 追加指令 "SetLowestPrice"或數字"1" , 可設定最低利率
 Ver1.01 - 修正網路不穩 可能造成軟體當機
 
 # 安迪的綠葉自動放貸機器人
@@ -31,5 +32,10 @@ Ver1.01 - 修正網路不穩 可能造成軟體當機
 
 **USDT(TRC20)**:TD82FMnpNxPDKVcuiSAFcfwDYJtpbGuFYN
 
+
+
+# 指令一覽
+Clear - 清除小黑窗資訊
+SetLowestPrice - 設定最低借出利率
 # -
 有一天Lending pro 掛了 機器人就誕生了 因為我很窮所以自己寫了簡單的程式來放貸
