@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 namespace AutoLending_Bitfinex {
     class Program {
         private static BitfinexRestClient bitfinexRestClient = null;
-        public const decimal LowestPrice = 0.00025m;
+        public static  decimal LowestPrice = 0.00025m;
+        public static bool RunnerPass;
         static void Main(string[] args) {
-            Console.WriteLine("安迪的綠葉放貸機器人 ver 1.01");
+            Console.WriteLine("安迪的綠葉放貸機器人 ver 1.02");
             Console.Write("請輸入API 金鑰 : ");
             var key = Console.ReadLine();
             Console.Write("請輸入API 密鑰 : ");
@@ -19,16 +20,18 @@ namespace AutoLending_Bitfinex {
             });
             bool init = false;
             Task task = null;
+            CommonList commenList = new CommonList();
             while (true) {
                 if (!init) {
                     task = Task.Run(MainRunner);
                     init = true;
                 }
-                var clearCommon = Console.ReadLine();
-                if (clearCommon == "Clear")
-                    Console.Clear();
+                var enterCommon = Console.ReadLine();
+                commenList.ReadCommon(enterCommon);
             }
             async Task MainRunner() {
+                while(RunnerPass)
+                    await Task.Delay(1000);
                 Console.WriteLine("運轉中...");
                 //獲取資產餘額
                 var data = await bitfinexRestClient.SpotApi.Account.GetBalancesAsync();
