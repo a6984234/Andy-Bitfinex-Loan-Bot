@@ -19,12 +19,12 @@ namespace AutoLending_Bitfinex {
                 () => {
                     Program.RunnerPass = true;
                     Console.WriteLine("請輸入要設定的最低利率,利率換算方式\n" +
-                        "0.00025 = 0.025%" +
+                        "0.00025 = 0.025%\n" +
                         "請注意不要超過7% Bitfinex不允許 ");
                     var setLowestRate = Console.ReadLine();
                     if (Decimal.TryParse(setLowestRate, out var resule)) {
                         if (resule > 0.07m) {
-                            Console.WriteLine("更新失敗" +
+                            Console.WriteLine("更新失敗\n" +
                                 "請注意不要超過7%的限制!");
                             return;
                         }
