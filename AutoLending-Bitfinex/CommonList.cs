@@ -23,13 +23,13 @@ namespace AutoLending_Bitfinex {
                         "請注意不要超過7% Bitfinex不允許 ");
                     var setLowestRate = Console.ReadLine();
                     if (Decimal.TryParse(setLowestRate, out var resule)) {
-                        if (resule > 0.07m) {
+                        if (resule > 0.07m || resule <= 0) {
                             Console.WriteLine("更新失敗\n" +
                                 "請注意不要超過7%的限制!");
-                            return;
+                        } else {
+                            Program.LowestPrice = resule;
+                            Console.WriteLine("已更新最低利率");
                         }
-                        Program.LowestPrice = resule;
-                        Console.WriteLine("已更新最低利率");
                     } else {
                         Console.WriteLine("設定失敗");
                     }
