@@ -1,7 +1,6 @@
 # 版本更新
 Ver1.03 - 追加指令 "SetAsideFunds"或數字"2" , 可設定預留資金 *(測試中)*
-
-          追加指令 "SetUnitAmount"或數字"3" , 可設定每單最低金額 *(測試中)*
+追加指令 "SetUnitAmount"或數字"3" , 可設定每單最低金額 *(測試中)*
 
    
 Ver1.02 - 追加指令 "SetLowestPrice"或數字"1" , 可設定最低利率
