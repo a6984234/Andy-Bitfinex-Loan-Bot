@@ -35,6 +35,46 @@ namespace AutoLending_Bitfinex {
                     }
                     Program.RunnerPass= false;
                 }));
+            commons.Add(new Common(
+                "SetAsideFunds", 2,
+                () => {
+                    Program.RunnerPass = true;
+                    Console.WriteLine("請輸入想要預留的資金\n" +
+                        "*這邊只能輸入整數*");
+                    var setAsideFunds = Console.ReadLine();
+                    if(int.TryParse( setAsideFunds , out var result)) {
+                        if (result < 0) {
+                            Program.SetAsideFunds = 0;
+                            Console.WriteLine("已將預留資金設定為 0");
+                        } else {
+                            Program.SetAsideFunds = result;
+                            Console.WriteLine("已將預留資金設定為 " + result);
+                        }
+                    } else {
+                        Console.WriteLine("設定失敗");
+                    }
+                    Program.RunnerPass = false;
+                }));
+            commons.Add(new Common(
+                "SetUnitAmount", 3,
+                () => {
+                    Program.RunnerPass = true;
+                    Console.WriteLine("請輸入一單的最低金額\n" +
+                        "*這邊只能輸入整數*");
+                    var setAsideFunds = Console.ReadLine();
+                    if (int.TryParse(setAsideFunds, out var result)) {
+                        if (result < 150) {
+                            Program.UnitAmount = 150;
+                            Console.WriteLine("已將最低金額設定為 150");
+                        } else {
+                            Program.SetAsideFunds = result;
+                            Console.WriteLine("已將最低金額設定為 " + result);
+                        }
+                    } else {
+                        Console.WriteLine("設定失敗");
+                    }
+                    Program.RunnerPass = false;
+                }));
         }
         /// <summary>
         /// 讀取指令並執行
