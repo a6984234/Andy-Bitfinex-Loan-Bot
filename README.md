@@ -15,7 +15,7 @@ Ver1.01 - 修正網路不穩 可能造成軟體當機
    
 下載網址:  
    
-[https://drive.google.com/file/d/1-O9lpIgTCdGDgLckF0pldBzt9u9dbaWP/view?usp=sharing](https://drive.google.com/file/d/1-O9lpIgTCdGDgLckF0pldBzt9u9dbaWP/view?usp=sharing)
+[https://drive.google.com/file/d/1If-GtFLsli3OALbFEoTGuv2_yaS4IfAg/view?usp=sharing](https://drive.google.com/file/d/1If-GtFLsli3OALbFEoTGuv2_yaS4IfAg/view?usp=sharing)
 # 使用方法
 請至[綠葉](https://www.bitfinex.com/)申請API  *請記得一定要開啟使用融資的權限*  
    
