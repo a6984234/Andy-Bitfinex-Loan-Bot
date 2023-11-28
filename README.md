@@ -1,4 +1,7 @@
 # 版本更新
+Ver1.03 - 追加指令 "SetAsideFunds"或數字"2" , 可設定預留資金 *(測試中)*
+          追加指令 "SetUnitAmount"或數字"3" , 可設定每單最低金額 *(測試中)*
+   
 Ver1.02 - 追加指令 "SetLowestPrice"或數字"1" , 可設定最低利率
 
 Ver1.01 - 修正網路不穩 可能造成軟體當機
@@ -36,11 +39,13 @@ Ver1.01 - 修正網路不穩 可能造成軟體當機
 
 
 # 指令一覽
-Clear - 清除小黑窗資訊
+Clear(0) - 清除小黑窗資訊
       
-    
-SetLowestPrice - 設定最低借出利率
+SetLowestPrice(1) - 設定最低借出利率
 
+SetAsideFunds(2) - 設定預留資金
+
+SetUnitAmount(3) - 可設定每單最低金額
 
 # -
 有一天Lending pro 掛了 機器人就誕生了 因為我很窮所以自己寫了簡單的程式來放貸
