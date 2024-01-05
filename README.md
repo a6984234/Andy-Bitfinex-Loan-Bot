@@ -1,7 +1,10 @@
 # 版本更新
-Ver1.03 - 追加指令 "SetAsideFunds"或數字"2" , 可設定預留資金 *(測試中)*
+Ver1.04 - 修正 每單最低金額無法設定
 
-追加指令 "SetUnitAmount"或數字"3" , 可設定每單最低金額 *(測試中)*
+
+Ver1.03 - 追加指令 "SetAsideFunds"或數字"2" , 可設定預留資金 
+
+追加指令 "SetUnitAmount"或數字"3" , 可設定每單最低金額 
 
    
 Ver1.02 - 追加指令 "SetLowestPrice"或數字"1" , 可設定最低利率
@@ -15,7 +18,7 @@ Ver1.01 - 修正網路不穩 可能造成軟體當機
    
 下載網址:  
    
-[https://drive.google.com/file/d/1If-GtFLsli3OALbFEoTGuv2_yaS4IfAg/view?usp=sharing](https://drive.google.com/file/d/1If-GtFLsli3OALbFEoTGuv2_yaS4IfAg/view?usp=sharing)
+[https://drive.google.com/file/d/13iUl1y8o5kQOo0FMrzd25eVLH448Jz-z/view?usp=sharing](https://drive.google.com/file/d/13iUl1y8o5kQOo0FMrzd25eVLH448Jz-z/view?usp=sharing)
 # 使用方法
 請至[綠葉](https://www.bitfinex.com/)申請API  *請記得一定要開啟使用融資的權限*  
    
