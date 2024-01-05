@@ -67,7 +67,7 @@ namespace AutoLending_Bitfinex {
                             Program.UnitAmount = 150;
                             Console.WriteLine("已將最低金額設定為 150");
                         } else {
-                            Program.SetAsideFunds = result;
+                            Program.UnitAmount = result;
                             Console.WriteLine("已將最低金額設定為 " + result);
                         }
                     } else {

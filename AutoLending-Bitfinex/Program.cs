@@ -20,7 +20,7 @@ namespace AutoLending_Bitfinex {
         public static int UnitAmount = 150;
         public static bool RunnerPass;
         static void Main(string[] args) {
-            Console.WriteLine("安迪的綠葉放貸機器人 ver 1.03");
+            Console.WriteLine("安迪的綠葉放貸機器人 ver 1.04");
             Console.Write("請輸入API 金鑰 : ");
             var key = Console.ReadLine();
             Console.Write("請輸入API 密鑰 : ");
@@ -50,7 +50,7 @@ namespace AutoLending_Bitfinex {
                     var Usd_Remaining = data1.Where(x => x.Type == Bitfinex.Net.Enums.WalletType.Funding && x.Asset == "USD").First()?.Available ?? 0;
                     Usd_Remaining -= SetAsideFunds;//扣掉使用者想要預留的資金
                     //如果USD剩餘有超過150
-                    if (Usd_Remaining > UnitAmount) {
+                    if (Usd_Remaining >= UnitAmount) {
                         if (await GetActiveFundingOffersCount() == 0) {
                             //借出金額
                             var quantity = Usd_Remaining - UnitAmount >= UnitAmount ?
