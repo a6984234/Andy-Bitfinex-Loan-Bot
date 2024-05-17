@@ -40,8 +40,9 @@ Ver1.01 - 修正網路不穩 可能造成軟體當機
 
 **我真的會由衷感謝你 並祝你好人一生平安**
 
-**USDT(TRC20)**:TD82FMnpNxPDKVcuiSAFcfwDYJtpbGuFYN
+原作者Andy: **USDT(TRC20)**:TD82FMnpNxPDKVcuiSAFcfwDYJtpbGuFYN
 
+小小加工者David: **USDT(TRON)**:TPU2ZWrkWpZ1CBp1fV1gDdX3fLqZ9Dn76r
 
 
 # 指令一覽
