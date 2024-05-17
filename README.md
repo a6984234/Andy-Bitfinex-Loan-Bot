@@ -1,24 +1,22 @@
 # 版本更新
-Ver1.04 - 修正 每單最低金額無法設定
+Ver1.05 - 追加新貨幣 "USDT"
 
+Ver1.04 - 修正 每單最低金額無法設定
 
 Ver1.03 - 追加指令 "SetAsideFunds"或數字"2" , 可設定預留資金 
 
 追加指令 "SetUnitAmount"或數字"3" , 可設定每單最低金額 
-
    
 Ver1.02 - 追加指令 "SetLowestPrice"或數字"1" , 可設定最低利率
 
 Ver1.01 - 修正網路不穩 可能造成軟體當機
 
 # 安迪的綠葉自動放貸機器人
-輸出了Exe,如果想要使用可以直接下載       
-       
-*目前只支援USD放貸如果有需要其他幣種可以到DC群跟我說 如果真的有人使用的話qq*
+輸出了Exe,如果想要使用可以直接下載，如果不放心輸出檔可以自行編譯。      
    
-下載網址:  
-   
-[https://drive.google.com/file/d/13iUl1y8o5kQOo0FMrzd25eVLH448Jz-z/view?usp=sharing](https://drive.google.com/file/d/13iUl1y8o5kQOo0FMrzd25eVLH448Jz-z/view?usp=sharing)
+下載網址:
+
+[https://drive.google.com/file/d/1qIlFIRLMcQdqU98Ra_yZ5m2IaPC_wBvW/view?usp=drive_link](https://drive.google.com/file/d/1qIlFIRLMcQdqU98Ra_yZ5m2IaPC_wBvW/view?usp=drive_link)
 # 使用方法
 請至[綠葉](https://www.bitfinex.com/)申請API  *請記得一定要開啟使用融資的權限*  
    
