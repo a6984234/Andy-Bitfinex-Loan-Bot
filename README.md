@@ -1,5 +1,8 @@
 Folk from [a6984234/Andy-Bitfinex-Loan-Bot](https://github.com/a6984234/Andy-Bitfinex-Loan-Bot).
+
 Thanks Andy for create this bot!
+
+以下README訊息大部分皆為原作者a6984234所撰寫，我目前只有加入USDT的貨幣選項。
 
 # 版本更新
 Ver1.05 - 追加新貨幣 "USDT"
