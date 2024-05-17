@@ -20,7 +20,14 @@ namespace AutoLending_Bitfinex {
         public static int UnitAmount = 150;
         public static bool RunnerPass;
         static void Main(string[] args) {
-            Console.WriteLine("安迪的綠葉放貸機器人 ver 1.04");
+            Console.WriteLine("安迪的綠葉放貸機器人 ver 1.05");
+            Console.Write("請輸入幣別(目前支援USD/USDT) : ");
+            var currency = Console.ReadLine();
+            if (currency == "USDT") {
+                currency = "UST";
+            } else {
+                currency = "USD";
+            }
             Console.Write("請輸入API 金鑰 : ");
             var key = Console.ReadLine();
             Console.Write("請輸入API 密鑰 : ");
@@ -47,7 +54,7 @@ namespace AutoLending_Bitfinex {
                 //獲取資產餘額
                 var data = await bitfinexRestClient.SpotApi.Account.GetBalancesAsync();
                 if (data.GetResultOrError(out var data1, out var error)) {
-                    var Usd_Remaining = data1.Where(x => x.Type == Bitfinex.Net.Enums.WalletType.Funding && x.Asset == "USD").First()?.Available ?? 0;
+                    var Usd_Remaining = data1.Where(x => x.Type == Bitfinex.Net.Enums.WalletType.Funding && x.Asset == currency).First()?.Available ?? 0;
                     Usd_Remaining -= SetAsideFunds;//扣掉使用者想要預留的資金
                     //如果USD剩餘有超過150
                     if (Usd_Remaining >= UnitAmount) {
@@ -63,7 +70,7 @@ namespace AutoLending_Bitfinex {
                             //設定日期
                             var period = SetPeriod(rate);
                             if (rate != 0) {
-                                var SubmitFundingOffer = await bitfinexRestClient.GeneralApi.Funding.SubmitFundingOfferAsync(Bitfinex.Net.Enums.FundingOrderType.Limit, "fUSD", quantity, rate, period);
+                                var SubmitFundingOffer = await bitfinexRestClient.GeneralApi.Funding.SubmitFundingOfferAsync(Bitfinex.Net.Enums.FundingOrderType.Limit, "f"+currency, quantity, rate, period);
                                 if (SubmitFundingOffer.GetResultOrError(out var fundingOffer, out var fundingOfferError)) {
                                     Console.WriteLine("已送出融資訂單 , Rate" + rate + " day" + period);
                                 } else {
@@ -88,7 +95,7 @@ namespace AutoLending_Bitfinex {
             }
             //檢查是否仍有訂單 無訂單回傳 
             async Task<int> GetActiveFundingOffersCount() {
-                var getActiveFundingOffers = await bitfinexRestClient.GeneralApi.Funding.GetActiveFundingOffersAsync("fUSD");
+                var getActiveFundingOffers = await bitfinexRestClient.GeneralApi.Funding.GetActiveFundingOffersAsync("f"+currency);
                 if (getActiveFundingOffers.GetResultOrError(out var result, out var offersError)) {
                     if (result.Any() && Math.Round(await GetAvg(), 6) != Math.Round(result.First().Rate, 6)) {
                         Console.WriteLine("已有訂單 利率:" + result.First().Rate + "天數:" + result.First().Period);
@@ -104,7 +111,7 @@ namespace AutoLending_Bitfinex {
             //獲取價格平均值
             async Task<decimal> GetAvg() {
                 var _klineData = await bitfinexRestClient.SpotApi.ExchangeData.GetKlinesAsync(
-                            "fUSD",
+                            "f"+currency,
                             Bitfinex.Net.Enums.KlineInterval.ThirtyMinutes,
                             fundingPeriod: "p2",
                             startTime: DateTime.Now.ToUniversalTime().AddHours(-12));
@@ -113,7 +120,7 @@ namespace AutoLending_Bitfinex {
                     var avg = highprice.Average();
                     Console.WriteLine(avg);
                     //檢查最新價格是不是比avg還高
-                    var tradeHistory = await bitfinexRestClient.SpotApi.ExchangeData.GetTradeHistoryAsync("fUSD", startTime: DateTime.Now.ToUniversalTime().AddMinutes(-30));
+                    var tradeHistory = await bitfinexRestClient.SpotApi.ExchangeData.GetTradeHistoryAsync("f"+currency, startTime: DateTime.Now.ToUniversalTime().AddMinutes(-30));
                     if (tradeHistory.GetResultOrError(out var tradeData, out var tradeError)) {
                         if (tradeData.First().Price > avg) {
                             avg = tradeData.First().Price;
