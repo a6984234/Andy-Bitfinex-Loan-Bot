@@ -17,8 +17,8 @@ Ver1.01 - 修正網路不穩 可能造成軟體當機
 *目前只支援USD放貸如果有需要其他幣種可以到DC群跟我說 如果真的有人使用的話qq*
    
 下載網址:  
-   
-[https://drive.google.com/file/d/13iUl1y8o5kQOo0FMrzd25eVLH448Jz-z/view?usp=sharing](https://drive.google.com/file/d/13iUl1y8o5kQOo0FMrzd25eVLH448Jz-z/view?usp=sharing)
+2025.08.04 更新下載連結
+[https://drive.google.com/file/d/1RKtYcGrPJCzf6BcXprrRTfxTclUBiPnu/view?usp=sharing](https://drive.google.com/file/d/1RKtYcGrPJCzf6BcXprrRTfxTclUBiPnu/view?usp=sharing)
 # 使用方法
 請至[綠葉](https://www.bitfinex.com/)申請API  *請記得一定要開啟使用融資的權限*  
    
